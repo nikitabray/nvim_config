@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/nikitabray/.vim/config'
+let g:netrw_dirhist_0='/Users/nikitabray/.vim'
+let g:netrw_dirhist_9='/Users/nikitabray/.vim/autoload'
+let g:netrw_dirhist_8='/Users/nikitabray/.vim'
+let g:netrw_dirhist_7='/Users/nikitabray/.vim/config'
+let g:netrw_dirhist_6='/Users/nikitabray/.vim'
+let g:netrw_dirhist_5='/Users/nikitabray/.vim/config'
+let g:netrw_dirhist_4='/Users/nikitabray/.vim'
+let g:netrw_dirhist_3='/Users/nikitabray/.vim/config'
+let g:netrw_dirhist_2='/Users/nikitabray/.vim'
