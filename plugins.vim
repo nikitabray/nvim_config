@@ -9,15 +9,10 @@ Plug 'L3MON4D3/LuaSnip'
 
 " color schemas
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
-Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'ayu-theme/ayu-vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'rakr/vim-one'
-
-" For JS/JSX
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'sonph/onehalf', { 'rtp': 'vim' }
+" Plug 'rakr/vim-one'
 
 Plug 'vim-airline/vim-airline'
 
