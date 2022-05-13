@@ -1,11 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
-
+" Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " color schemas
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
@@ -27,5 +23,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'psf/black', { 'branch': 'stable' }
 
 Plug 'scrooloose/nerdtree'
+
+" Plug 'rust-lang/rust.vim'
+
 
 call plug#end()

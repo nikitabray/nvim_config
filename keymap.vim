@@ -18,4 +18,10 @@ nnoremap <C-H> <C-W><C-H>
 noremap <leader>y "+y
 noremap <leader>p "+p
 
-map <C-b> :NERDTreeToggle<CR>
+map <C-p> :NERDTreeToggle<CR>
+
+" Coc-definitions
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

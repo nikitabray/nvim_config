@@ -2,7 +2,6 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/colorscheme.vim
 source $HOME/.config/nvim/keymap.vim
-source $HOME/.config/nvim/lsp.vim
 
 
 
