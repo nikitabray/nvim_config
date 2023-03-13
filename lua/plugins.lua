@@ -71,4 +71,6 @@ return require('packer').startup(function(use)
 	use "lukas-reineke/indent-blankline.nvim"
 	-- Undo history
 	use 'mbbill/undotree'
+	-- Git
+	use 'tpope/vim-fugitive'
 end)

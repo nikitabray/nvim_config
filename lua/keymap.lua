@@ -12,3 +12,5 @@ vim.keymap.set('n', '<C-p>', vim.lsp.buf.declaration, bufopts)
 vim.keymap.set('n', '<leader>p', vim.cmd.Neotree)
 
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+vim.keymap.set('n', '<leader>gv', vim.cmd.Git)
