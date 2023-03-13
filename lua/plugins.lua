@@ -69,4 +69,6 @@ return require('packer').startup(function(use)
 
 	-- Indent
 	use "lukas-reineke/indent-blankline.nvim"
+	-- Undo history
+	use 'mbbill/undotree'
 end)

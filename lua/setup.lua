@@ -59,7 +59,7 @@ require('illuminate').configure({
 
 -- TreeSitter
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "c", "lua", "vim", "help", "query", "python", "rust" },
+	ensure_installed = { "lua", "vim", "help", "query", "python", "rust" },
 	highlight = { enable = true },
 	incremental_selection = { enable = true },
 	textobjects = { enable = true },
