@@ -24,6 +24,13 @@ return require('packer').startup(function(use)
 	-- Colorscheme
 	use 'marko-cerovac/material.nvim'
 	use 'Abstract-IDE/Abstract-cs'
+	use({
+		'rose-pine/neovim',
+		as = 'rose-pine',
+		config = function()
+			vim.cmd('colorscheme rose-pine')
+		end
+	})
 	-- Navigation
 	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 	use {
