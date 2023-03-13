@@ -1,5 +1,6 @@
 lua require('init')
+
 colorscheme abscs
-"colorscheme material
 
-
+set cursorline
+set relativenumber
