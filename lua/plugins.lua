@@ -1,7 +1,33 @@
 return require('packer').startup(function(use)
+	config = {
+		-- Move to lua dir so impatient.nvim can cache it
+		compile_path = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua',
+		display = {
+			open_fn = function()
+				return require('packer.util').float({ border = 'single' })
+			end
+		},
+		git = {
+			cmd = 'git', -- The base command for git operations
+			depth = 1, -- Git clone depth
+			clone_timeout = 600, -- Timeout, in seconds, for git clones
+		},
+	}
 	use 'wbthomason/packer.nvim'
+
+
+	use { -- Speed up loading Lua modules in Neovim to improve startup time.
+		'lewis6991/impatient.nvim',
+	}
+	use { -- The fastest Neovim colorizer.
+		'NvChad/nvim-colorizer.lua',
+	}
+
+	use 'j-hui/fidget.nvim'
 	-- Tree-sitter
-	use 'nvim-treesitter/nvim-treesitter'
+	use {
+		'nvim-treesitter/nvim-treesitter'
+	}
 	use {
 		'm-demare/hlargs.nvim',
 		requires = { 'nvim-treesitter/nvim-treesitter' }
@@ -22,15 +48,7 @@ return require('packer').startup(function(use)
 	use { 'ms-jpq/coq_nvim', branch = 'coq' }
 	use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
 	-- Colorscheme
-	use 'marko-cerovac/material.nvim'
 	use 'Abstract-IDE/Abstract-cs'
-	use({
-		'rose-pine/neovim',
-		as = 'rose-pine',
-		config = function()
-			vim.cmd('colorscheme rose-pine')
-		end
-	})
 	-- Navigation
 	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 	use {
@@ -62,9 +80,6 @@ return require('packer').startup(function(use)
 
 	-- Cursor highlighting
 	use 'RRethy/vim-illuminate'
-
-	-- Smooth scrolling
-	use 'karb94/neoscroll.nvim'
 
 	-- Commentary
 	use {

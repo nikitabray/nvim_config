@@ -1,6 +1,5 @@
 require('hlargs').setup()
 require('lualine').setup()
-require('neoscroll').setup()
 require("nvim-autopairs").setup()
 require('Comment').setup()
 require("indent_blankline").setup {
@@ -61,6 +60,12 @@ require('illuminate').configure({
 require 'nvim-treesitter.configs'.setup {
 	ensure_installed = { "lua", "vim", "help", "query", "python", "rust" },
 	highlight = { enable = true },
-	incremental_selection = { enable = true },
+	incremental_selection = { enable = true, keymaps = {
+		init_selection = "gnn", -- set to `false` to disable one of the mappings
+		node_incremental = "grn",
+		scope_incremental = "grc",
+		node_decremental = "grm",
+		}
+	},
 	textobjects = { enable = true },
 }
