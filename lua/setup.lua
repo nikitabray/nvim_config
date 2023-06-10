@@ -68,4 +68,6 @@ require 'nvim-treesitter.configs'.setup {
 		}
 	},
 	textobjects = { enable = true },
+	additional_vim_regex_highlighting = true,
+	indent = { enable = true, }
 }

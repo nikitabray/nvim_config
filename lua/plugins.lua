@@ -23,10 +23,17 @@ return require('packer').startup(function(use)
 		'NvChad/nvim-colorizer.lua',
 	}
 
-	use 'j-hui/fidget.nvim'
+	use {
+		'j-hui/fidget.nvim',
+		config = [[ require('fidget_nvim') ]],
+	}
 	-- Tree-sitter
 	use {
 		'nvim-treesitter/nvim-treesitter'
+	}
+
+	use {
+		'nvim-treesitter/playground'
 	}
 	use {
 		'm-demare/hlargs.nvim',
@@ -48,7 +55,7 @@ return require('packer').startup(function(use)
 	use { 'ms-jpq/coq_nvim', branch = 'coq' }
 	use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
 	-- Colorscheme
-	use 'Abstract-IDE/Abstract-cs'
+	use 'nikitabray/Abstract-cs'
 	-- Navigation
 	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 	use {

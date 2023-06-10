@@ -11,3 +11,4 @@ require('keymap')
 require('set')
 
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+vim.keymap.set("n", "<C-e>", ":TSHighlightCapturesUnderCursor<CR>", opts)
