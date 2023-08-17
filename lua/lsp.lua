@@ -1,15 +1,6 @@
-vim.g.coq_settings = {
-	keymap = { recommended = false },
-	auto_start = 'shut-up',
-	clients = {
-		tmux = { enabled = false },
-	},
-}
-local coq = require "coq"
-
 require("mason").setup()
 require("mason-lspconfig").setup()
-
+local lspconfig = require 'lspconfig'
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -33,24 +24,28 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
-
 local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
 }
 
-require('lspconfig')['pyright'].setup(coq.lsp_ensure_capabilities({
-	on_attach = on_attach,
-	flags = lsp_flags,
-}))
-require('lspconfig')['lua_ls'].setup(coq.lsp_ensure_capabilities({
-	on_attach = on_attach,
-	flags = lsp_flags,
-}))
-require('lspconfig')['rust_analyzer'].setup(coq.lsp_ensure_capabilities({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	settings = {
-		["rust-analyzer"] = {}
-	}
-}))
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local servers = { 'rust_analyzer', 'pyright' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+lspconfig.lua_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = 'Replace',
+      },
+    },
+  },
+}
