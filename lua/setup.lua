@@ -58,7 +58,7 @@ require('illuminate').configure({
 
 -- TreeSitter
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "lua", "vim", "help", "query", "python", "rust" },
+	ensure_installed = { "lua", "vim", "query", "python", "rust" },
 	highlight = { enable = true },
 	incremental_selection = { enable = true, keymaps = {
 		init_selection = "gnn", -- set to `false` to disable one of the mappings
