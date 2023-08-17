@@ -1,105 +1,61 @@
-return require('packer').startup(function(use)
-	config = {
-		-- Move to lua dir so impatient.nvim can cache it
-		compile_path = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua',
-		display = {
-			open_fn = function()
-				return require('packer.util').float({ border = 'single' })
-			end
-		},
-		git = {
-			cmd = 'git', -- The base command for git operations
-			depth = 1, -- Git clone depth
-			clone_timeout = 600, -- Timeout, in seconds, for git clones
-		},
-	}
-	use 'wbthomason/packer.nvim'
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
-
-	use { -- Speed up loading Lua modules in Neovim to improve startup time.
-		'lewis6991/impatient.nvim',
-	}
-	use { -- The fastest Neovim colorizer.
-		'NvChad/nvim-colorizer.lua',
-	}
-
-	use {
-		'j-hui/fidget.nvim',
-		config = [[ require('fidget_nvim') ]],
-	}
-	-- Tree-sitter
-	use {
-		'nvim-treesitter/nvim-treesitter'
-	}
-
-	use {
-		'nvim-treesitter/playground'
-	}
-	use {
-		'm-demare/hlargs.nvim',
-		requires = { 'nvim-treesitter/nvim-treesitter' }
-	}
-	-- LSP
-	use 'williamboman/mason.nvim'
-	use 'williamboman/mason-lspconfig.nvim'
-	use 'neovim/nvim-lspconfig'
-	-- Search
-	use 'junegunn/fzf'
-	use 'junegunn/fzf.vim'
-	use 'ojroques/nvim-lspfuzzy'
-	use {
+return require('lazy').setup({
+	{ 'NvChad/nvim-colorizer.lua', lazy = true },
+	{ 'j-hui/fidget.nvim',         lazy = true },
+	{
+		'nvim-treesitter/nvim-treesitter',
+		opts = function(_, opts)
+			opts.ignore_install = { 'help' }
+		end,
+	},
+	{
+		'm-demare/hlargs.nvim', lazy = true
+	},
+	'williamboman/mason.nvim',
+	'williamboman/mason-lspconfig.nvim',
+	'neovim/nvim-lspconfig',
+	{ 'junegunn/fzf',           lazy = true },
+	{ 'ojroques/nvim-lspfuzzy', lazy = true },
+	{
 		'nvim-telescope/telescope.nvim',
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
-	-- Autocompletion
-	use { 'ms-jpq/coq_nvim', branch = 'coq' }
-	use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-	-- Colorscheme
-	use 'nikitabray/Abstract-cs'
-	-- Navigation
-	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-	use {
+		dependencies = { { 'nvim-lua/plenary.nvim' } },
+		lazy = true
+	},
+	{ 'ms-jpq/coq_nvim',       branch = 'coq', lazy = true },
+	'nikitabray/Abstract-cs',
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-		}
-	}
-
-	-- Status line
-	use {
+			"kyazdani42/nvim-web-devicons",
+			"MunifTanjim/nui.nvim"
+		},
+		lazy = true
+	},
+	{
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
-	-- Brackets (and more)
-	use({
+		dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
+	},
+	{
 		"kylechui/nvim-surround",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		lazy = true,
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
 		config = function()
 			require("nvim-surround").setup({
 				-- Configuration here, or leave empty to use defaults
 			})
 		end
-	})
-	use "windwp/nvim-autopairs"
-
-	-- Cursor highlighting
-	use 'RRethy/vim-illuminate'
-
-	-- Commentary
-	use {
+	},
+	{ "windwp/nvim-autopairs", lazy = true },
+	{ 'RRethy/vim-illuminate', lazy = true },
+	{
 		'numToStr/Comment.nvim',
-		config = function()
-			require('Comment').setup()
-		end
-	}
-
-	-- Indent
-	use "lukas-reineke/indent-blankline.nvim"
-	-- Undo history
-	use 'mbbill/undotree'
-	-- Git
-	use 'tpope/vim-fugitive'
-end)
+		lazy = true,
+	},
+	{ "lukas-reineke/indent-blankline.nvim", lazy = true },
+	'mbbill/undotree',
+	{ 'tpope/vim-fugitive',                  lazy = true, cmd = "Git" },
+})
