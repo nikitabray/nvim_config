@@ -1,15 +1,14 @@
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+
 return require('lazy').setup({
-	{ 'Abstract-IDE/penvim' },
-	{ 'tpope/vim-dadbod' },
-	{ 'kristijanhusak/vim-dadbod-ui' },
-	{ 'kristijanhusak/vim-dadbod-completion' },
-	{ "iagorrr/noctishc.nvim" }, { 'NvChad/nvim-colorizer.lua', lazy = true },
-	{ 'j-hui/fidget.nvim',    tag = "legacy", lazy = true, event = "LspAttach" }, {
+ {"iagorrr/noctishc.nvim"},
+	{ 'NvChad/nvim-colorizer.lua', lazy = true },
+	{ 'j-hui/fidget.nvim',         tag = "legacy", lazy = true, event = "LspAttach" }, {
 	'nvim-treesitter/nvim-treesitter',
 	opts = function(_, opts) opts.ignore_install = { 'help' } end
 }, { 'm-demare/hlargs.nvim', lazy = true }, 'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig',
-	{ 'junegunn/fzf',                        lazy = true }, { 'ojroques/nvim-lspfuzzy', lazy = true }, {
+	{ 'junegunn/fzf',         lazy = true }, { 'ojroques/nvim-lspfuzzy', lazy = true }, {
 	'nvim-telescope/telescope.nvim',
 	dependencies = { { 'nvim-lua/plenary.nvim' } },
 	lazy = true
@@ -96,11 +95,12 @@ return require('lazy').setup({
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
 	}
-}, {
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
-}
+},
+	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp"
+	}
 })
