@@ -1,9 +1,11 @@
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 return require('lazy').setup({
- {"iagorrr/noctishc.nvim"},
-	{ 'NvChad/nvim-colorizer.lua', lazy = true },
-	{ 'j-hui/fidget.nvim',         tag = "legacy", lazy = true, event = "LspAttach" }, {
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	{ "tpope/vim-dadbod" },
+	{ "iagorrr/noctishc.nvim" },
+	{ 'NvChad/nvim-colorizer.lua',                  lazy = true },
+	{ 'j-hui/fidget.nvim',                          tag = "legacy", lazy = true, event = "LspAttach" }, {
 	'nvim-treesitter/nvim-treesitter',
 	opts = function(_, opts) opts.ignore_install = { 'help' } end
 }, { 'm-demare/hlargs.nvim', lazy = true }, 'williamboman/mason.nvim',
@@ -33,10 +35,11 @@ return require('lazy').setup({
 			-- Configuration here, or leave empty to use defaults
 		})
 	end
-}, { "windwp/nvim-autopairs",            lazy = true },
-	{ 'RRethy/vim-illuminate',               lazy = true },
-	{ 'numToStr/Comment.nvim',               lazy = true },
-	{ "lukas-reineke/indent-blankline.nvim", lazy = true }, 'mbbill/undotree',
+}, { "windwp/nvim-autopairs", lazy = true },
+	{ 'RRethy/vim-illuminate', lazy = true },
+	{ 'numToStr/Comment.nvim', lazy = true },
+	'mbbill/undotree',
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{ 'tpope/vim-fugitive', lazy = true, cmd = "Git" }, {
 	"hrsh7th/nvim-cmp",
 	version = false, -- last release is way too old
