@@ -42,3 +42,5 @@ lspconfig.lua_ls.setup {
     capabilities = capabilities,
     settings = {Lua = {completion = {callSnippet = 'Replace'}}}
 }
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+vim.keymap.set("n", "<C-e>", ":TSHighlightCapturesUnderCursor<CR>", opts)
