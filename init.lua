@@ -11,7 +11,6 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require('plugins')
-require('colorscheme')
 
 require('colorizer').setup()
 require('fidget').setup()
@@ -20,10 +19,4 @@ require('setup')
 require('lsp')
 require('surround')
 require('keymap')
-require('set')
-
-
--- Misc
-vim.cmd [[set cursorline]]
-vim.cmd [[set relativenumber]]
-vim.cmd [[set mouse=]]
+require('options')
