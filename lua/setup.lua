@@ -2,9 +2,6 @@ require('hlargs').setup()
 require('lualine').setup()
 require("nvim-autopairs").setup()
 require('Comment').setup()
-require("ibl").setup {
-    -- for example, context is off by default, use this to turn it on
-}
 
 require('illuminate').configure({
     -- providers: provider used to get references in the buffer, ordered by priority
@@ -61,5 +58,5 @@ require'nvim-treesitter.configs'.setup {
     },
     textobjects = {enable = true},
     additional_vim_regex_highlighting = true,
-    indent = {enable = true}
+    --indent = {enable = true}
 }

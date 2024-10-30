@@ -36,8 +36,7 @@ return require('lazy').setup({
 }, { "windwp/nvim-autopairs", lazy = true },
 	{ 'RRethy/vim-illuminate', lazy = true },
 	{ 'numToStr/Comment.nvim', lazy = true }, 'mbbill/undotree',
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-	{ 'tpope/vim-fugitive',                  lazy = true,  cmd = "Git" }, {
+	{ 'tpope/vim-fugitive', lazy = true,         cmd = "Git" }, {
 	"hrsh7th/nvim-cmp",
 	version = false, -- last release is way too old
 	event = "InsertEnter",
@@ -106,7 +105,7 @@ return require('lazy').setup({
 		require("luasnip.loaders.from_vscode").lazy_load()
 	end,
 },
-	{ "catppuccin/nvim",           name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim",    name = "catppuccin", priority = 1000 },
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -114,5 +113,7 @@ return require('lazy').setup({
 		opts = {},
 	},
 	{ "junkblocker/git-time-lapse" },
-	{ "xiyaowong/transparent.nvim" }
+	{ "xiyaowong/transparent.nvim" },
+	{ "mogelbrod/vim-jsonpath" }
+
 })
